@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="760.0" prefWidth="1100.0"
+            style="-fx-background-color: #111111;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.reservationstudio.controller.LoginController">
+
+   <!-- LEFT SIDE — branding panel -->
+   <VBox alignment="CENTER" spacing="0"
+         layoutX="0" layoutY="0"
+         prefWidth="520" prefHeight="760"
+         style="-fx-background-color: #8B0000;">
+
+      <StackPane>
+         <Circle fill="white" opacity="0.08" radius="160"/>
+         <Circle fill="white" opacity="0.05" radius="200"/>
+         <ImageView fitHeight="180" fitWidth="180"
+                    preserveRatio="true" pickOnBounds="true">
+            <Image url="@PS-Logo.png"/>
+         </ImageView>
+      </StackPane>
+
+      <VBox alignment="CENTER" spacing="6">
+         <VBox.margin><Insets top="30"/></VBox.margin>
+         <Label text="RESERVATION"
+                style="-fx-font-family: 'Bauhaus 93'; -fx-font-size: 36px;
+                          -fx-font-weight: bold; -fx-text-fill: white;
+                          -fx-letter-spacing: 6;"/>
+         <Label text="STUDIO"
+                style="-fx-font-family: 'Bauhaus 93'; -fx-font-size: 36px;
+                          -fx-text-fill: white;
+                          -fx-letter-spacing: 6;"/>
+      </VBox>
+
+      <Label text="Floor &amp; Reservation Management"
+             style="-fx-font-family: 'Georgia'; -fx-font-size: 12px;
+                      -fx-text-fill: rgba(255,255,255,0.4);
+                      -fx-font-style: italic;">
+         <VBox.margin><Insets top="16"/></VBox.margin>
+      </Label>
+   </VBox>
+
+   <!-- DIVIDER LINE -->
+   <Rectangle layoutX="520" layoutY="0"
+              width="1" height="760"
+              fill="#2a2a2a"/>
+
+   <!-- RIGHT SIDE — login form -->
+   <VBox alignment="CENTER" spacing="0"
+         layoutX="520" layoutY="0"
+         prefWidth="580" prefHeight="760"
+         style="-fx-background-color: #111111;">
+
+      <VBox maxWidth="380" spacing="28"
+            style="-fx-padding: 0 40 0 40;">
+
+         <VBox spacing="6">
+            <Label text="Welcome back!"
+                   style="-fx-font-family: 'Georgia'; -fx-font-size: 28px;
+                              -fx-font-weight: bold; -fx-text-fill: #ffffff;"/>
+            <Label text="Sign in to continue"
+                   style="-fx-font-family: 'Georgia'; -fx-font-size: 13px;
+                              -fx-text-fill: #666666; -fx-font-style: italic;"/>
+         </VBox>
+
+         <VBox spacing="8">
+            <Label text="USERNAME"
+                   style="-fx-font-family: 'Georgia'; -fx-font-size: 11px;
+                              -fx-text-fill: #888888; -fx-letter-spacing: 2;"/>
+            <TextField fx:id="UsernameBox"
+                       promptText="Enter your username"
+                       style="-fx-background-color: #1e1e1e;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #444444;
+                                  -fx-border-color: #2a2a2a;
+                                  -fx-border-radius: 6;
+                                  -fx-background-radius: 6;
+                                  -fx-font-family: 'Georgia';
+                                  -fx-font-size: 13px;
+                                  -fx-padding: 12 16 12 16;"/>
+         </VBox>
+
+         <VBox spacing="8">
+            <Label text="PASSWORD"
+                   style="-fx-font-family: 'Georgia'; -fx-font-size: 11px;
+                              -fx-text-fill: #888888; -fx-letter-spacing: 2;"/>
+            <PasswordField fx:id="PasswBox"
+                           promptText="Enter your password"
+                           style="-fx-background-color: #1e1e1e;
+                                      -fx-text-fill: white;
+                                      -fx-prompt-text-fill: #444444;
+                                      -fx-border-color: #2a2a2a;
+                                      -fx-border-radius: 6;
+                                      -fx-background-radius: 6;
+                                      -fx-font-family: 'Georgia';
+                                      -fx-font-size: 13px;
+                                      -fx-padding: 12 16 12 16;"/>
+         </VBox>
+
+         <Label fx:id="messageLabel"
+                style="-fx-text-fill: #e74c3c; -fx-font-family: 'Georgia';
+                          -fx-font-size: 12px;"/>
+
+         <Button text="SIGN IN"
+                 onAction="#handleLogin"
+                 maxWidth="Infinity"
+                 style="-fx-background-color: #8B0000;
+                           -fx-text-fill: white;
+                           -fx-font-family: 'Georgia';
+                           -fx-font-weight: bold;
+                           -fx-font-size: 13px;
+                           -fx-letter-spacing: 2;
+                           -fx-background-radius: 6;
+                           -fx-padding: 14 20 14 20;
+                           -fx-cursor: hand;"/>
+
+         <Label text="Pizza Studio © 2026"
+                style="-fx-font-family: 'Georgia'; -fx-font-size: 10px;
+                          -fx-text-fill: #333333;">
+            <VBox.margin><Insets top="20"/></VBox.margin>
+         </Label>
+
+      </VBox>
+   </VBox>
+
+</AnchorPane>

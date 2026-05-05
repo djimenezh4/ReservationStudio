@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox prefHeight="760.0" prefWidth="1100.0" style="-fx-background-color: #111111;"
+      xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.reservationstudio.controller.MainController">
+    <VBox minWidth="280.0" prefWidth="320.0" spacing="10.0" style="-fx-background-color: #111111;">
+        <padding>
+            <Insets bottom="18.0" left="14.0" right="14.0" top="18.0"/>
+        </padding>
+        <Label maxWidth="1.7976931348623157E308"
+               style="-fx-background-color: #8a7a70; -fx-background-radius: 20; -fx-padding: 6 20 6 20; -fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-weight: bold; -fx-font-size: 14px; -fx-alignment: center;"
+               text="Search"/>
+        <TextField fx:id="searchField" promptText="Search guests..."
+                   style="-fx-background-color: #2a2a2a; -fx-text-fill: white; -fx-prompt-text-fill: #777777; -fx-border-color: #555555; -fx-border-radius: 20; -fx-background-radius: 20; -fx-font-family: 'Georgia'; -fx-font-size: 13px; -fx-padding: 8 14 8 14;"/>
+        <Label maxWidth="1.7976931348623157E308"
+               style="-fx-background-color: #c0392b; -fx-background-radius: 20; -fx-padding: 6 20 6 20; -fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-weight: bold; -fx-font-size: 14px; -fx-alignment: center;"
+               text="Seated"/>
+        <VBox fx:id="seatedList" spacing="2.0"
+              style="-fx-background-color: #1e1e1e; -fx-background-radius: 6; -fx-padding: 4;"/>
+        <Label maxWidth="1.7976931348623157E308"
+               style="-fx-background-color: #c0392b; -fx-background-radius: 20; -fx-padding: 6 20 6 20; -fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-weight: bold; -fx-font-size: 14px; -fx-alignment: center;"
+               text="Reservation"/>
+        <VBox fx:id="reservationList" spacing="2.0"
+              style="-fx-background-color: #1e1e1e; -fx-background-radius: 6; -fx-padding: 4;"/>
+        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleAddReservation"
+                style="-fx-background-color: #2a2a2a; -fx-text-fill: #cccccc; -fx-font-family: 'Georgia'; -fx-font-size: 13px; -fx-background-radius: 20; -fx-border-color: #555555; -fx-border-radius: 20; -fx-padding: 8 20 8 20; -fx-cursor: hand;"
+                text="Add Reservation"/>
+    </VBox>
+    <VBox style="-fx-background-color: #3d8fa1;" HBox.hgrow="ALWAYS">
+        <HBox alignment="CENTER_RIGHT" spacing="30.0"
+              style="-fx-background-color: #1a1a1a; -fx-border-color: #333333; -fx-border-width: 0 0 1 0;">
+            <padding>
+                <Insets bottom="8.0" left="16.0" right="16.0" top="8.0"/>
+            </padding>
+            <Label style="-fx-font-size: 18px; -fx-text-fill: #6d6d6d;" text="#"/>
+            <Label fx:id="dateLabel"
+                   style="-fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <Label fx:id="timeLabel"
+                   style="-fx-text-fill: white; -fx-font-family: 'Georgia'; -fx-font-size: 14px;"/>
+        </HBox>
+        <AnchorPane fx:id="floorPlanContainer" style="-fx-background-color: #3d8fa1;" VBox.vgrow="ALWAYS"/>
+    </VBox>
+</HBox>
