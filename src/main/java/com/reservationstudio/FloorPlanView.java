@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+/*FloorPlanView renders the interactive restaurant floor plan
+Each table is draw as a StackPane node at a fixed position matching the physical restaurant layout. Tables are color-
+coded by reservation status.
+ */
 public class FloorPlanView {
 
     private static final String DEFAULT_COLOR = "#5a5a5a";
@@ -28,24 +32,30 @@ public class FloorPlanView {
     };
 
 
+    /*The root canvas that all table nodes are placed on*/
     private final Pane canvas = new Pane();
+
     private final List<RestaurantTable> tables;
-    // Map: tableNumber -> StackPane node
+    /*Maps table number to its StackPane node on the canvas*/
     private final Map<Integer, StackPane> tableNodes = new HashMap<>();
+    /*Maps table number to its server name label inside the node*/
     private final Map<Integer, Label> serverLabels = new HashMap<>();
 
-    
+    /*Main controller registers its handler here via setOnTableClicked().
+     */
     private Consumer<Integer> onTableClicked;
-    
+
+    /*Registers the handler to call when a table node is clicked*/
     public void setOnTableClicked(Consumer<Integer> handler){
         this.onTableClicked = handler;
     }
-    
+
+    /*Constructs the floor plan view and immediately draws the layout*/
     public FloorPlanView(List<RestaurantTable> tables) {
         this.tables = tables;
         buildLayout();
     }
-
+    /*Builds the static floorplan layout: background, header label, panel label and all table nodes*/
     private void buildLayout() {
         // Black background
         canvas.setStyle("-fx-background-color: #141414;");
@@ -82,7 +92,7 @@ public class FloorPlanView {
             canvas.getChildren().add(node);
         }
     }
-
+    /*Creates a single interactive table node as a StackPane*/
     private StackPane createTableNode(RestaurantTable t) {
         StackPane sp = new StackPane();
         sp.setPrefSize(t.getWidth(), t.getHeight());
@@ -108,8 +118,8 @@ public class FloorPlanView {
         VBox content = new VBox(2, numLabel, serverLabel);
         content.setAlignment(Pos.CENTER);
 
-
-        sp.getChildren().addAll(bg, numLabel);
+        /*Show server label on table*/
+        sp.getChildren().addAll(bg, content);
         
         sp.setOnMouseEntered(e -> sp.setOpacity(0.75));
         sp.setOnMouseExited(e -> sp.setOpacity(1.0));
